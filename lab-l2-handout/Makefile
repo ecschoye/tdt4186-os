@@ -141,8 +141,8 @@ UPROGS=\
 	$U/_schedset\
 	
 
-fs.img: mkfs/mkfs README $(UPROGS) $U/load.sh
-	mkfs/mkfs fs.img README $(UPROGS) $U/load.sh
+fs.img: mkfs/mkfs README $(UPROGS) $U/load.sh $U/benchmark.sh
+	mkfs/mkfs fs.img README $(UPROGS) $U/load.sh $U/benchmark.sh 
 
 
 -include kernel/*.d user/*.d

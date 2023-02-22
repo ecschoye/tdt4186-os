@@ -6,7 +6,6 @@ from gradelib import *
 r = Runner(save("xv6.out"))
 
 
-
 @test(1, "[MANDATORY] schedls reports two schedulers")
 def test1():
     r.run_qemu(shell_script(["schedls"]))
@@ -74,32 +73,6 @@ def test6():
         "Executing sh took [0-9]+ ticks",
         "^OK$",
     )
-
-@test(0, "[TASK 1.1] Timer result from 10 benchmarks")
-def task7():
-    r.run_qemu(
-        shell_script(["time sh load.sh", 
-        		"time sh load.sh", 
-        		"time sh load.sh", 
-        		"time sh load.sh", 
-        		"time sh load.sh", 
-        		"time sh load.sh", 
-        		"time sh load.sh", 
-        		"time sh load.sh", 
-        		"time sh load.sh", 
-        		"time sh load.sh"]),
-        timeout=30,
-    )
-    r.match("Executing sh took [0-9]+ ticks", 
-    		"Executing sh took [0-9]+ ticks",
-    		"Executing sh took [0-9]+ ticks",
-    		"Executing sh took [0-9]+ ticks",
-    		"Executing sh took [0-9]+ ticks",
-    		"Executing sh took [0-9]+ ticks",
-    		"Executing sh took [0-9]+ ticks",
-    		"Executing sh took [0-9]+ ticks",
-    		"Executing sh took [0-9]+ ticks",
-    		"Executing sh took [0-9]+ ticks")  
 
 
 run_tests()
